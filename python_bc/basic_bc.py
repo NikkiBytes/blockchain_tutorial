@@ -29,3 +29,11 @@ block1 = create_block("Y paid $20 to Z, X paid $10 to P", genesis_block_hash)
 # print the hash block1
 block1_hash = get_hash_itself(block1)
 print("block1_hash: ", block1_hash)
+
+
+# now if we mutilate the block
+genesis_block[1] = "Y paid $100 to X"
+genesis_block_hash = get_hash_itself(genesis_block)
+
+print("genesis_block_hash: ", genesis_block_hash)
+print("block1_parent_hash: ", get_parent_hash(block1))
